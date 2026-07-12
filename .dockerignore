@@ -1,0 +1,12 @@
+**/node_modules
+**/dist
+**/build
+**/.turbo
+**/.react-router
+**/.next
+**/coverage
+**/*.log
+**/.env*
+.git
+.github
+**/*.md

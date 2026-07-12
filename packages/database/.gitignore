@@ -1,0 +1,11 @@
+# Keep environment variables out of version control
+.env
+
+# Generated Prisma client
+/src/generated/prisma
+
+# Compiled output
+/dist
+
+# TypeScript incremental build info
+*.tsbuildinfo

@@ -1,0 +1,15 @@
+node_modules
+dist
+.turbo
+coverage
+pnpm-lock.yaml
+.react-router
+build
+
+# Tooling & AI agents
+.claude
+.agents
+.cursor
+.windsurf
+.copilot
+skills-lock.json

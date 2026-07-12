@@ -1,0 +1,26 @@
+{
+  "name": "@app/vitest-config",
+  "version": "0.0.0",
+  "type": "module",
+  "private": true,
+  "exports": {
+    "./base": {
+      "types": "./base.d.ts",
+      "default": "./base.js"
+    },
+    "./node": {
+      "types": "./node.d.ts",
+      "default": "./node.js"
+    },
+    "./react": {
+      "types": "./react.d.ts",
+      "default": "./react.js"
+    }
+  },
+  "devDependencies": {
+    "@swc/core": "^1.7.0",
+    "@vitest/coverage-v8": "catalog:",
+    "unplugin-swc": "^1.5.0",
+    "vitest": "catalog:"
+  }
+}
