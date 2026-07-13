@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#0b0b0d;font-family:'IBM Plex Sans',system-ui,-apple-system,sans-serif;color:#e6e6e9;-webkit-font-smoothing:antialiased}
+a{color:#10b981;text-decoration:none}
+a:hover{color:#34d399}
+</style>
+</helmet>
+
+<div style="min-height:100vh;background:#0b0b0d">
+
+  <!-- NAV -->
+  <div style="position:sticky;top:0;z-index:30;display:flex;align-items:center;gap:28px;padding:16px 40px;background:rgba(11,11,13,0.85);backdrop-filter:blur(10px);border-bottom:1px solid #1f1f24">
+    <div style="display:flex;align-items:center;gap:9px">
+      <div style="width:26px;height:26px;border-radius:7px;background:linear-gradient(140deg,#10b981,#0f8a63);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:#04150f">◆</div>
+      <span style="font-weight:600;font-size:15px;letter-spacing:-.01em">Tailstudio</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:18px;flex:1;white-space:nowrap">
+      <a href="Tailstudio Landing.dc.html#features" style="font-size:13px;color:#c4c4cc;white-space:nowrap">Fonctionnalités</a>
+      <a href="Tailstudio Landing.dc.html#ai" style="font-size:13px;color:#c4c4cc;white-space:nowrap">Assistant IA</a>
+      <a href="Tailstudio Landing.dc.html#testimonials" style="font-size:13px;color:#c4c4cc;white-space:nowrap">Témoignages</a>
+      <span style="font-size:13px;color:#e6e6e9;font-weight:600;white-space:nowrap">Pricing</span>
+      <a href="Tailstudio Learn.dc.html" style="font-size:13px;color:#c4c4cc;white-space:nowrap">Docs</a>
+    </div>
+    <a href="Tailwind Studio.dc.html" style="font-size:13px;color:#9a9aa2;white-space:nowrap">Se connecter</a>
+    <a href="Tailwind Studio.dc.html" style="padding:9px 14px;border-radius:8px;background:#10b981;color:#04150f;font-size:13px;font-weight:600;white-space:nowrap">Ouvrir l'éditeur</a>
+  </div>
+
+  <!-- HEADER -->
+  <div style="padding:90px 40px 20px;text-align:center">
+    <div style="font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#5eead4;margin-bottom:14px">Pricing</div>
+    <div style="font-size:44px;line-height:1.15;font-weight:700;letter-spacing:-.02em;color:#f4f4f5">Un plan pour chaque étape de votre produit.</div>
+    <div style="font-size:15px;color:#9a9aa2;margin-top:16px;max-width:520px;margin-left:auto;margin-right:auto">Commencez gratuitement, passez à l'échelle quand votre équipe grandit. Sans engagement.</div>
+
+    <div style="display:inline-flex;align-items:center;gap:2px;background:#141416;border:1px solid #26262b;border-radius:10px;padding:4px;margin-top:32px">
+      <div style="padding:8px 16px;border-radius:7px;background:rgba(16,185,129,0.14);color:#5eead4;font-size:13px;font-weight:600">Mensuel</div>
+      <div style="padding:8px 16px;border-radius:7px;color:#8a8a93;font-size:13px;display:flex;align-items:center;gap:7px">Annuel <span style="font-size:10px;color:#5eead4;background:rgba(16,185,129,0.12);padding:2px 7px;border-radius:10px">-20%</span></div>
+    </div>
+  </div>
+
+  <!-- TIERS -->
+  <div style="padding:56px 40px 100px">
+    <div style="max-width:1080px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch">
+
+      <!-- STARTER -->
+      <div style="background:#141416;border:1px solid #26262b;border-radius:16px;padding:32px;display:flex;flex-direction:column">
+        <div style="font-size:14px;font-weight:600;color:#e6e6e9">Starter</div>
+        <div style="font-size:12.5px;color:#6a6a72;margin-top:6px">Pour découvrir Tailstudio</div>
+        <div style="display:flex;align-items:baseline;gap:6px;margin-top:22px"><span style="font-size:38px;font-weight:700;color:#f4f4f5">0€</span><span style="font-size:13px;color:#6a6a72">/ mois</span></div>
+        <a href="Tailwind Studio.dc.html" style="margin-top:22px;padding:11px;border-radius:9px;border:1px solid #2a2a30;color:#e6e6e9;font-size:13.5px;font-weight:600;text-align:center">Commencer</a>
+        <div style="height:1px;background:#1f1f24;margin:26px 0"></div>
+        <div style="display:flex;flex-direction:column;gap:13px">
+          <div style="display:flex;align-items:center;gap:9px;font-size:13px;color:#c4c4cc"><span style="color:#10b981">✓</span>3 projets</div>
+          <div style="display:flex;align-items:center;gap:9px;font-size:13px;color:#c4c4cc"><span style="color:#10b981">✓</span>1 breakpoint par page</div>
+          <div style="display:flex;align-items:center;gap:9px;font-size:13px;color:#c4c4cc"><span style="color:#10b981">✓</span>Export code Tailwind</div>
+          <div style="display:flex;align-items:center;gap:9px;font-size:13px;color:#c4c4cc"><span style="color:#10b981">✓</span>Commentaires en contexte</div>
+          <div style="display:flex;align-items:center;gap:9px;font-size:13px;color:#4a4a52"><span>–</span>Assistant IA</div>
+          <div style="display:flex;align-items:center;gap:9px;font-size:13px;color:#4a4a52"><span>–</span>Historique de versions</div>
+        </div>
+      </div>
+
+      <!-- PRO -->
+      <div style="position:relative;background:#141416;border:1.5px solid #10b981;border-radius:16px;padding:32px;display:flex;flex-direction:column;box-shadow:0 20px 60px rgba(16,185,129,0.12)">
+        <div style="position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:#10b981;color:#04150f;font-size:11px;font-weight:700;padding:4px 12px;border-radius:999px">Le plus populaire</div>
+        <div style="font-size:14px;font-weight:600;color:#e6e6e9">Pro</div>
+        <div style="font-size:12.5px;color:#6a6a72;margin-top:6px">Pour les équipes produit</div>
+        <div style="display:flex;align-items:baseline;gap:6px;margin-top:22px"><span style="font-size:38px;font-weight:700;color:#f4f4f5">28€</span><span style="font-size:13px;color:#6a6a72">/ mois</span></div>
+        <a href="Tailwind Studio.dc.html" style="margin-top:22px;padding:11px;border-radius:9px;background:#10b981;color:#04150f;font-size:13.5px;font-weight:600;text-align:center">Essayer 14 jours</a>
+        <div style="height:1px;background:#1f1f24;margin:26px 0"></div>
+        <div style="display:flex;flex-direction:column;gap:13px">
+          <div style="display:flex;align-items:center;gap:9px;font-size:13px;color:#c4c4cc"><span style="color:#10b981">✓</span>Projets illimités</div>
+          <div style="display:flex;align-items:center;gap:9px;font-size:13px;color:#c4c4cc"><span style="color:#10b981">✓</span>Mobile · Tablet · Desktop liés</div>
+          <div style="display:flex;align-items:center;gap:9px;font-size:13px;color:#c4c4cc"><span style="color:#10b981">✓</span>Assistant IA (500 req/mois)</div>
+          <div style="display:flex;align-items:center;gap:9px;font-size:13px;color:#c4c4cc"><span style="color:#10b981">✓</span>Composants &amp; styles personnalisés</div>
+          <div style="display:flex;align-items:center;gap:9px;font-size:13px;color:#c4c4cc"><span style="color:#10b981">✓</span>Historique de versions</div>
+          <div style="display:flex;align-items:center;gap:9px;font-size:13px;color:#c4c4cc"><span style="color:#10b981">✓</span>Jusqu'à 10 collaborateurs</div>
+        </div>
+      </div>
+
+      <!-- ENTERPRISE -->
+      <div style="background:#141416;border:1px solid #26262b;border-radius:16px;padding:32px;display:flex;flex-direction:column">
+        <div style="font-size:14px;font-weight:600;color:#e6e6e9">Enterprise</div>
+        <div style="font-size:12.5px;color:#6a6a72;margin-top:6px">Pour les grandes organisations</div>
+        <div style="display:flex;align-items:baseline;gap:6px;margin-top:22px"><span style="font-size:38px;font-weight:700;color:#f4f4f5">Sur mesure</span></div>
+        <a href="#" style="margin-top:22px;padding:11px;border-radius:9px;border:1px solid #2a2a30;color:#e6e6e9;font-size:13.5px;font-weight:600;text-align:center">Contacter les ventes</a>
+        <div style="height:1px;background:#1f1f24;margin:26px 0"></div>
+        <div style="display:flex;flex-direction:column;gap:13px">
+          <div style="display:flex;align-items:center;gap:9px;font-size:13px;color:#c4c4cc"><span style="color:#10b981">✓</span>Tout le plan Pro</div>
+          <div style="display:flex;align-items:center;gap:9px;font-size:13px;color:#c4c4cc"><span style="color:#10b981">✓</span>Collaborateurs illimités</div>
+          <div style="display:flex;align-items:center;gap:9px;font-size:13px;color:#c4c4cc"><span style="color:#10b981">✓</span>Assistant IA illimité</div>
+          <div style="display:flex;align-items:center;gap:9px;font-size:13px;color:#c4c4cc"><span style="color:#10b981">✓</span>SSO &amp; permissions avancées</div>
+          <div style="display:flex;align-items:center;gap:9px;font-size:13px;color:#c4c4cc"><span style="color:#10b981">✓</span>Support dédié &amp; SLA</div>
+          <div style="display:flex;align-items:center;gap:9px;font-size:13px;color:#c4c4cc"><span style="color:#10b981">✓</span>Déploiement on-premise</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div style="padding:80px 40px 110px;background:#0d0d0f;border-top:1px solid #1f1f24">
+    <div style="max-width:760px;margin:0 auto">
+      <div style="text-align:center;margin-bottom:44px">
+        <div style="font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#5eead4;margin-bottom:14px">FAQ</div>
+        <div style="font-size:30px;font-weight:700;letter-spacing:-.02em;color:#f4f4f5">Questions fréquentes</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:1px">
+        <div style="padding:20px 0;border-bottom:1px solid #1f1f24">
+          <div style="font-size:14.5px;font-weight:600;color:#e6e6e9">Puis-je changer de plan à tout moment ?</div>
+          <div style="font-size:13.5px;line-height:1.6;color:#9a9aa2;margin-top:8px">Oui, vous pouvez passer d'un plan à l'autre à tout moment depuis les paramètres du projet. La différence est calculée au prorata.</div>
+        </div>
+        <div style="padding:20px 0;border-bottom:1px solid #1f1f24">
+          <div style="font-size:14.5px;font-weight:600;color:#e6e6e9">Que se passe-t-il si je dépasse mon quota d'Assistant IA ?</div>
+          <div style="font-size:13.5px;line-height:1.6;color:#9a9aa2;margin-top:8px">L'éditeur reste utilisable normalement ; l'assistant IA est simplement mis en pause jusqu'au renouvellement, ou vous pouvez augmenter la limite à tout moment.</div>
+        </div>
+        <div style="padding:20px 0;border-bottom:1px solid #1f1f24">
+          <div style="font-size:14.5px;font-weight:600;color:#e6e6e9">Le code généré est-il vraiment prêt à livrer ?</div>
+          <div style="font-size:13.5px;line-height:1.6;color:#9a9aa2;margin-top:8px">Oui — chaque style est compilé en classes Tailwind natives, sans couche d'abstraction supplémentaire à maintenir.</div>
+        </div>
+        <div style="padding:20px 0">
+          <div style="font-size:14.5px;font-weight:600;color:#e6e6e9">Proposez-vous une remise pour les associations ou l'éducation ?</div>
+          <div style="font-size:13.5px;line-height:1.6;color:#9a9aa2;margin-top:8px">Oui, contactez notre équipe avec un justificatif — nous appliquons une remise de 50% sur le plan Pro.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div style="padding:56px 40px 32px">
+    <div style="max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px">
+      <div>
+        <div style="display:flex;align-items:center;gap:9px;margin-bottom:12px">
+          <div style="width:22px;height:22px;border-radius:6px;background:linear-gradient(140deg,#10b981,#0f8a63);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;color:#04150f">◆</div>
+          <span style="font-weight:600;font-size:13.5px">Tailstudio</span>
+        </div>
+        <div style="font-size:12.5px;color:#6a6a72;line-height:1.6;max-width:220px">L'éditeur visuel qui rend en Tailwind. Design et code, enfin la même chose.</div>
+      </div>
+      <div>
+        <div style="font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#5a5a62;margin-bottom:14px">Produit</div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="Tailstudio Landing.dc.html#features" style="font-size:13px;color:#9a9aa2">Fonctionnalités</a>
+          <span style="font-size:13px;color:#9a9aa2">Pricing</span>
+          <a href="Tailstudio Landing.dc.html#ai" style="font-size:13px;color:#9a9aa2">Assistant IA</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#5a5a62;margin-bottom:14px">Ressources</div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="Tailstudio Learn.dc.html" style="font-size:13px;color:#9a9aa2">Documentation</a>
+          <a href="Tailstudio Learn.dc.html" style="font-size:13px;color:#9a9aa2">Guides</a>
+          <a href="Tailstudio Landing.dc.html#testimonials" style="font-size:13px;color:#9a9aa2">Témoignages</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#5a5a62;margin-bottom:14px">Entreprise</div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="#" style="font-size:13px;color:#9a9aa2">À propos</a>
+          <a href="#" style="font-size:13px;color:#9a9aa2">Contact</a>
+          <a href="#" style="font-size:13px;color:#9a9aa2">Confidentialité</a>
+        </div>
+      </div>
+    </div>
+    <div style="max-width:1080px;margin:36px auto 0;padding-top:24px;border-top:1px solid #1f1f24;font-size:12px;color:#5a5a62">© 2026 Tailstudio. Tous droits réservés.</div>
+  </div>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:&quot;100%&quot;}}"></script>
+</body>
+</html>

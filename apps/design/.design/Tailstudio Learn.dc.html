@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#0b0b0d;font-family:'IBM Plex Sans',system-ui,-apple-system,sans-serif;color:#e6e6e9;-webkit-font-smoothing:antialiased}
+a{color:#10b981;text-decoration:none}
+a:hover{color:#34d399}
+</style>
+</helmet>
+
+<div style="min-height:100vh;background:#0b0b0d">
+
+  <!-- NAV -->
+  <div style="position:sticky;top:0;z-index:30;display:flex;align-items:center;gap:28px;padding:16px 40px;background:rgba(11,11,13,0.85);backdrop-filter:blur(10px);border-bottom:1px solid #1f1f24">
+    <div style="display:flex;align-items:center;gap:9px">
+      <div style="width:26px;height:26px;border-radius:7px;background:linear-gradient(140deg,#10b981,#0f8a63);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:#04150f">◆</div>
+      <span style="font-weight:600;font-size:15px;letter-spacing:-.01em">Tailstudio</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:18px;flex:1;white-space:nowrap">
+      <a href="Tailstudio Landing.dc.html#features" style="font-size:13px;color:#c4c4cc;white-space:nowrap">Fonctionnalités</a>
+      <a href="Tailstudio Landing.dc.html#ai" style="font-size:13px;color:#c4c4cc;white-space:nowrap">Assistant IA</a>
+      <a href="Tailstudio Landing.dc.html#testimonials" style="font-size:13px;color:#c4c4cc;white-space:nowrap">Témoignages</a>
+      <a href="Tailstudio Pricing.dc.html" style="font-size:13px;color:#c4c4cc;white-space:nowrap">Pricing</a>
+      <span style="font-size:13px;color:#e6e6e9;font-weight:600;white-space:nowrap">Docs</span>
+    </div>
+    <a href="Tailwind Studio.dc.html" style="font-size:13px;color:#9a9aa2;white-space:nowrap">Se connecter</a>
+    <a href="Tailwind Studio.dc.html" style="padding:9px 14px;border-radius:8px;background:#10b981;color:#04150f;font-size:13px;font-weight:600;white-space:nowrap">Ouvrir l'éditeur</a>
+  </div>
+
+  <div style="display:flex;max-width:1180px;margin:0 auto;align-items:flex-start">
+
+    <!-- SIDEBAR -->
+    <div style="width:230px;flex:none;padding:48px 24px;position:sticky;top:70px">
+      <div style="display:flex;align-items:center;gap:8px;background:#141416;border:1px solid #26262b;border-radius:8px;padding:8px 10px;margin-bottom:28px">
+        <span style="color:#6a6a72;font-size:12px">⌕</span><span style="font-size:12.5px;color:#6a6a72">Rechercher…</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:22px">
+        <div>
+          <div style="font-size:10.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#5a5a62;margin-bottom:9px">Démarrage</div>
+          <div style="display:flex;flex-direction:column;gap:2px">
+            <a href="#intro" style="font-size:13px;color:#e6e6e9;padding:6px 8px;border-radius:6px;background:rgba(16,185,129,0.1)">Introduction</a>
+            <a href="#projet" style="font-size:13px;color:#9a9aa2;padding:6px 8px;border-radius:6px">Créer un projet</a>
+            <a href="#frames" style="font-size:13px;color:#9a9aa2;padding:6px 8px;border-radius:6px">Frames &amp; breakpoints</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:10.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#5a5a62;margin-bottom:9px">Design system</div>
+          <div style="display:flex;flex-direction:column;gap:2px">
+            <a href="#styles" style="font-size:13px;color:#9a9aa2;padding:6px 8px;border-radius:6px">Styles &amp; tokens</a>
+            <a href="#composants" style="font-size:13px;color:#9a9aa2;padding:6px 8px;border-radius:6px">Composants personnalisés</a>
+            <a href="#theme" style="font-size:13px;color:#9a9aa2;padding:6px 8px;border-radius:6px">Thème du projet</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:10.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#5a5a62;margin-bottom:9px">Collaboration</div>
+          <div style="display:flex;flex-direction:column;gap:2px">
+            <a href="#commentaires" style="font-size:13px;color:#9a9aa2;padding:6px 8px;border-radius:6px">Commentaires</a>
+            <a href="#versions" style="font-size:13px;color:#9a9aa2;padding:6px 8px;border-radius:6px">Historique de versions</a>
+            <a href="#partage" style="font-size:13px;color:#9a9aa2;padding:6px 8px;border-radius:6px">Partage en lecture seule</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:10.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#5a5a62;margin-bottom:9px">Assistant IA</div>
+          <div style="display:flex;flex-direction:column;gap:2px">
+            <a href="#ia" style="font-size:13px;color:#9a9aa2;padding:6px 8px;border-radius:6px">Premiers pas avec l'IA</a>
+            <a href="#mcp" style="font-size:13px;color:#9a9aa2;padding:6px 8px;border-radius:6px">Connecter le MCP</a>
+            <a href="#raccourcis" style="font-size:13px;color:#9a9aa2;padding:6px 8px;border-radius:6px">Raccourcis clavier</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTENT -->
+    <div style="flex:1;padding:48px 40px 100px;min-width:0">
+      <div id="intro" style="font-size:11.5px;color:#5eead4;font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-bottom:12px">Démarrage</div>
+      <div style="font-size:34px;font-weight:700;letter-spacing:-.02em;color:#f4f4f5;margin-bottom:16px">Bienvenue dans la documentation Tailstudio</div>
+      <div style="font-size:14.5px;line-height:1.7;color:#9a9aa2;max-width:640px">Tailstudio transforme votre design en classes Tailwind natives, en temps réel. Ces guides couvrent la prise en main, la gestion de votre design system, la collaboration et l'assistant IA.</div>
+
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:32px;max-width:760px">
+        <a href="#projet" style="background:#141416;border:1px solid #26262b;border-radius:12px;padding:18px;display:block">
+          <div style="font-size:16px;margin-bottom:10px">▭</div>
+          <div style="font-size:13.5px;font-weight:600;color:#e6e6e9">Créer un projet</div>
+          <div style="font-size:12px;color:#6a6a72;margin-top:4px">2 min de lecture</div>
+        </a>
+        <a href="#ia" style="background:#141416;border:1px solid #26262b;border-radius:12px;padding:18px;display:block">
+          <div style="font-size:16px;margin-bottom:10px">✦</div>
+          <div style="font-size:13.5px;font-weight:600;color:#e6e6e9">Assistant IA</div>
+          <div style="font-size:12px;color:#6a6a72;margin-top:4px">4 min de lecture</div>
+        </a>
+        <a href="#commentaires" style="background:#141416;border:1px solid #26262b;border-radius:12px;padding:18px;display:block">
+          <div style="font-size:16px;margin-bottom:10px">💬</div>
+          <div style="font-size:13.5px;font-weight:600;color:#e6e6e9">Commentaires</div>
+          <div style="font-size:12px;color:#6a6a72;margin-top:4px">3 min de lecture</div>
+        </a>
+      </div>
+
+      <div style="height:1px;background:#1f1f24;margin:48px 0"></div>
+
+      <div id="projet" style="margin-bottom:44px">
+        <div style="font-size:22px;font-weight:600;color:#f4f4f5;margin-bottom:10px">Créer un projet</div>
+        <div style="font-size:14px;line-height:1.7;color:#9a9aa2;max-width:640px">Depuis le tableau de bord, cliquez sur « Nouveau projet ». Choisissez un point de départ — page vierge ou modèle — puis ajoutez vos premiers frames depuis la barre d'outils.</div>
+      </div>
+
+      <div id="frames" style="margin-bottom:44px">
+        <div style="font-size:22px;font-weight:600;color:#f4f4f5;margin-bottom:10px">Frames &amp; breakpoints</div>
+        <div style="font-size:14px;line-height:1.7;color:#9a9aa2;max-width:640px">Mobile, Tablet et Desktop sont liés : sélectionnez un calque comme le titre ou l'image et modifiez-le une fois pour qu'il se répercute sur les trois vues. Utilisez l'onglet Prototype pour relier vos écrans entre eux.</div>
+      </div>
+
+      <div id="styles" style="margin-bottom:44px">
+        <div style="font-size:22px;font-weight:600;color:#f4f4f5;margin-bottom:10px">Styles &amp; tokens</div>
+        <div style="font-size:14px;line-height:1.7;color:#9a9aa2;max-width:640px">L'onglet Styles centralise vos styles de texte, couleurs et effets réutilisables — distincts du Thème global du projet. Toute modification s'applique partout où le style est utilisé.</div>
+      </div>
+
+      <div id="composants" style="margin-bottom:44px">
+        <div style="font-size:22px;font-weight:600;color:#f4f4f5;margin-bottom:10px">Composants personnalisés</div>
+        <div style="font-size:14px;line-height:1.7;color:#9a9aa2;max-width:640px">Sélectionnez un élément du canvas puis « Créer depuis la sélection » pour en faire un composant réutilisable, disponible ensuite dans le panneau Composants.</div>
+      </div>
+
+      <div id="theme" style="margin-bottom:44px">
+        <div style="font-size:22px;font-weight:600;color:#f4f4f5;margin-bottom:10px">Thème du projet</div>
+        <div style="font-size:14px;line-height:1.7;color:#9a9aa2;max-width:640px">Couleur d'accent, rayon des coins et police par défaut se règlent depuis l'onglet Thème et s'appliquent à l'ensemble du projet.</div>
+      </div>
+
+      <div id="commentaires" style="margin-bottom:44px">
+        <div style="font-size:22px;font-weight:600;color:#f4f4f5;margin-bottom:10px">Commentaires</div>
+        <div style="font-size:14px;line-height:1.7;color:#9a9aa2;max-width:640px">Chaque commentaire est ancré à un calque ou une page précise. Ouvrez le panneau Commentaires pour voir l'historique complet de chaque fil, répondre, ou marquer une discussion comme résolue.</div>
+      </div>
+
+      <div id="versions" style="margin-bottom:44px">
+        <div style="font-size:22px;font-weight:600;color:#f4f4f5;margin-bottom:10px">Historique de versions</div>
+        <div style="font-size:14px;line-height:1.7;color:#9a9aa2;max-width:640px">Nommez et enregistrez un instantané de votre thème, vos textes et vos composants à tout moment. Restaurez-le plus tard sans perdre votre travail en cours.</div>
+      </div>
+
+      <div id="partage" style="margin-bottom:44px">
+        <div style="font-size:22px;font-weight:600;color:#f4f4f5;margin-bottom:10px">Partage en lecture seule</div>
+        <div style="font-size:14px;line-height:1.7;color:#9a9aa2;max-width:640px">Depuis « Partager », activez le lien public pour laisser n'importe qui consulter une version figée de votre design, sans pouvoir la modifier.</div>
+      </div>
+
+      <div id="ia" style="margin-bottom:44px">
+        <div style="font-size:22px;font-weight:600;color:#f4f4f5;margin-bottom:10px">Premiers pas avec l'assistant IA</div>
+        <div style="font-size:14px;line-height:1.7;color:#9a9aa2;max-width:640px">Ouvrez l'assistant depuis le rail de gauche et décrivez la modification souhaitée en langage naturel — variante de composant, mise en responsive, audit d'accessibilité. Il applique le changement directement et vous montre le diff Tailwind.</div>
+      </div>
+
+      <div id="mcp" style="margin-bottom:44px">
+        <div style="font-size:22px;font-weight:600;color:#f4f4f5;margin-bottom:10px">Connecter le MCP</div>
+        <div style="font-size:14px;line-height:1.7;color:#9a9aa2;max-width:640px">Le protocole MCP (Model Context Protocol) donne à Claude ou à tout agent compatible un accès direct à votre projet Tailstudio, pour continuer le travail côté code.</div>
+        <div style="font-size:13.5px;font-weight:600;color:#e6e6e9;margin-top:20px;margin-bottom:8px">1. Ouvrir le panneau « Agent IA »</div>
+        <div style="font-size:14px;line-height:1.7;color:#9a9aa2;max-width:640px">Dans l'éditeur, cliquez sur le bouton <span style="color:#5eead4;font-family:'IBM Plex Mono',monospace;font-size:12.5px">✦ Agent IA</span> en haut à droite.</div>
+        <div style="font-size:13.5px;font-weight:600;color:#e6e6e9;margin-top:16px;margin-bottom:8px">2. Connecter le serveur MCP</div>
+        <div style="font-size:14px;line-height:1.7;color:#9a9aa2;max-width:640px">Copiez la commande fournie et exécutez-la dans votre agent (Claude Code, Cursor, etc.) pour lier votre projet en lecture :</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#c4c4cc;background:#141416;border:1px solid #26262b;border-radius:8px;padding:12px 14px;margin-top:10px;max-width:520px">npx tailstudio-mcp connect</div>
+        <div style="font-size:13.5px;font-weight:600;color:#e6e6e9;margin-top:16px;margin-bottom:8px">3. Partager le code d'un élément</div>
+        <div style="font-size:14px;line-height:1.7;color:#9a9aa2;max-width:640px">Sélectionnez un calque, ouvrez le panneau « Agent IA » et cliquez sur « Copier le code pour l'agent » — collez ensuite le résultat directement dans la conversation de votre agent pour qu'il continue l'implémentation.</div>
+      </div>
+
+      <div id="raccourcis">
+        <div style="font-size:22px;font-weight:600;color:#f4f4f5;margin-bottom:14px">Raccourcis clavier</div>
+        <div style="display:flex;flex-direction:column;gap:1px;max-width:420px">
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid #1f1f24"><span style="font-size:13px;color:#c4c4cc;white-space:nowrap">Annuler</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#6a6a72;background:#141416;border:1px solid #26262b;padding:3px 8px;border-radius:5px">⌘Z</span></div>
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid #1f1f24"><span style="font-size:13px;color:#c4c4cc;white-space:nowrap">Rétablir</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#6a6a72;background:#141416;border:1px solid #26262b;padding:3px 8px;border-radius:5px">⌘⇧Z</span></div>
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0"><span style="font-size:13px;color:#c4c4cc;white-space:nowrap">Recherche globale</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#6a6a72;background:#141416;border:1px solid #26262b;padding:3px 8px;border-radius:5px">⌘K</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div style="border-top:1px solid #1f1f24;padding:40px;text-align:center;font-size:12px;color:#5a5a62">© 2026 Tailstudio. Tous droits réservés.</div>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:&quot;100%&quot;}}"></script>
+</body>
+</html>
