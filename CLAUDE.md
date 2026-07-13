@@ -6,6 +6,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Turborepo + pnpm monorepo (Node >= 24, pnpm 11). Root scripts fan out via `turbo run`; per-app work uses `pnpm --filter <name> <script>`.
 
+The product is a suite of two tools: **UIX**, a graphic design tool (Figma-like, aimed at pixel-perfect designs, built in `apps/design`), and **Editor**, an agentic coding tool (`apps/editor`) that will integrate with UIX to build apps from designs.
+
 ## Commands
 
 ```sh
@@ -29,10 +31,16 @@ Scoped to one app/package: `pnpm --filter api dev`, `pnpm --filter web test`, et
 
 ### Apps
 
-- **`apps/api`** — NestJS 11, DDD + Clean Architecture. `src/infrastructure/` holds adapters (database, mail, storage via minio, auth), `src/shared/config` holds config. Auth is better-auth mounted through `@thallesp/nestjs-better-auth`.
-- **`apps/web`** and **`apps/admin`** — React Router v7 (framework mode, SSR) on React 19, Tailwind CSS v4, UI from `@app/ui`. Typecheck runs `react-router typegen` first (`pnpm --filter web typecheck`).
-- **`apps/editor`** — Electron (electron-vite) with `src/main` / `src/preload` / `src/renderer`. Uses Fluent UI v9 as its design system (not `@app/ui`). Its typecheck script is `typecheck` (two tsconfigs: node + web), and packaging goes through electron-builder (`build:win|mac|linux`).
+- **`apps/api`** — NestJS 11, DDD + Clean Architecture. Backend for the suite. `src/infrastructure/` holds adapters (database, mail, storage via minio, auth), `src/shared/config` holds config. Auth is better-auth mounted through `@thallesp/nestjs-better-auth`.
+- **`apps/web`** — the public landing page presenting the two tools (UIX and Editor). React Router v7 (framework mode, SSR) on React 19, Tailwind CSS v4, UI from `@app/ui`. Typecheck runs `react-router typegen` first (`pnpm --filter web typecheck`).
+- **`apps/design`** — **UIX**, the graphic design tool (Figma-like, pixel-perfect designs). Started as a copy of `web`, same stack and scripts.
+- **`apps/admin`** — management and governance back-office. Same stack as `web`.
+- **`apps/editor`** — **Editor**, the agentic coding tool; will link with UIX to build apps. Electron (electron-vite) with `src/main` / `src/preload` / `src/renderer`. Uses Fluent UI v9 as its design system (not `@app/ui`). Its typecheck script is `typecheck` (two tsconfigs: node + web), and packaging goes through electron-builder (`build:win|mac|linux`).
 - **`apps/mobile`** — Expo (expo-router). Not wired into turbo tasks; run with `pnpm --filter mobile start|ios|android`.
+
+### Design mockups
+
+Every app with a UI **except `admin`** carries a `.design/` directory at its root (`apps/web/.design`, `apps/design/.design`, `apps/editor/.design`) holding the design mockups (`*.dc.html` files + screenshots). Refer to these mockups when implementing or changing UI in those apps.
 
 ### Shared packages (`@app/*`)
 
