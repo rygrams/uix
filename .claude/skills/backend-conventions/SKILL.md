@@ -34,6 +34,7 @@ domains/
 - ✅ Les `use-cases` orchestrent : `repository` + `validators` + `mappers`.
 - ✅ Les `errors/` étendent une classe de base commune (`DomainError`).
 - ✅ Chaque domaine doit être un module NestJS indépendant
+- ❌ Deux domaines ne doivent jamais dépendre l'un de l'autre  dupliquer la logique métier d'un domaine dans un autre. Si un domaine a besoin de la logique d'un autre, il faut créer un `use-case` dans le domaine qui expose cette logique.
 
 ## `infrastructures/` — Services externes
 
