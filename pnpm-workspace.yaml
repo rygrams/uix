@@ -50,3 +50,5 @@ allowBuilds:
   prisma: true
   sharp: true
   '@scarf/scarf': false
+  electron: true
+  electron-winstaller: true
