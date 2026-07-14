@@ -32,11 +32,11 @@ Scoped to one app/package: `pnpm --filter api dev`, `pnpm --filter web test`, et
 ### Apps
 
 - **`apps/api`** — NestJS 11, DDD + Clean Architecture. Backend for the suite. `src/infrastructure/` holds adapters (database, mail, storage via minio, auth), `src/shared/config` holds config. Auth is better-auth mounted through `@thallesp/nestjs-better-auth`.
-- **`apps/web`** — the public landing page presenting the two tools (UIX and Editor). React Router v7 (framework mode, SSR) on React 19, Tailwind CSS v4, UI from `@app/ui`. Typecheck runs `react-router typegen` first (`pnpm --filter web typecheck`).
+- **`apps/web`** — the public landing page presenting the two tools (UIX and Editor). React Router v7 (framework mode, SSR) on React 19, Tailwind CSS v4, UI from HeroUI (`@heroui/react`), with `@app/ui` (shadcn) as a secondary fallback for components missing from HeroUI. Typecheck runs `react-router typegen` first (`pnpm --filter web typecheck`).
 - **`apps/design`** — **UIX**, the graphic design tool (Figma-like, pixel-perfect designs). Started as a copy of `web`, same stack and scripts.
 - **`apps/admin`** — management and governance back-office. Same stack as `web`.
-- **`apps/editor`** — **Editor**, the agentic coding tool; will link with UIX to build apps. Electron (electron-vite) with `src/main` / `src/preload` / `src/renderer`. Uses Fluent UI v9 as its design system (not `@app/ui`). Its typecheck script is `typecheck` (two tsconfigs: node + web), and packaging goes through electron-builder (`build:win|mac|linux`).
-- **`apps/mobile`** — Expo (expo-router). Not wired into turbo tasks; run with `pnpm --filter mobile start|ios|android`.
+- **`apps/editor`** — **Editor**, the agentic coding tool; will link with UIX to build apps. Electron (electron-vite) with `src/main` / `src/preload` / `src/renderer`. Uses HeroUI (`@heroui/react`) as its design system, same as `web`/`admin`/`design`. Its typecheck script is `typecheck` (two tsconfigs: node + web), and packaging goes through electron-builder (`build:win|mac|linux`).
+- **`apps/mobile`** — Expo (expo-router), used mainly to preview UIX designs on-device rather than as a full standalone app. UI from HeroUI Native (`heroui-native`). Not wired into turbo tasks; run with `pnpm --filter mobile start|ios|android`.
 
 ### Design mockups
 
@@ -47,7 +47,7 @@ Every app with a UI **except `admin`** carries a `.design/` directory at its roo
 - **`packages/database`** — Prisma client + schema, shared by api and auth.
 - **`packages/auth`** — better-auth config exposed as a `createAuth(prisma, mailer)` factory.
 - **`packages/email-templates`** — React Email templates + `renderEmail()` helper; `pnpm --filter @app/email-templates preview` serves a preview on :3002.
-- **`packages/ui`** — shared shadcn/ui component library (used by web + admin, not editor).
+- **`packages/ui`** — shared shadcn/ui component library, the secondary/fallback UI library for `web`/`admin`/`design` (used only for components not covered by HeroUI; not used by `editor`).
 - **`packages/eslint-config` / `typescript-config` / `vitest-config`** — shared config profiles (base / nest / react). New apps extend these rather than defining their own.
 
 ### Dependency versions
@@ -56,7 +56,7 @@ Versions live in the **pnpm catalog** (`pnpm-workspace.yaml`); package.json entr
 
 ## Conventions
 
-Detailed conventions live as project skills in `.claude/skills/` — consult the matching skill before writing code: `backend-conventions` (NestJS layering), `frontend-conventions` (feature-based React structure, servers layer), `fluentui-v9` (editor UI), `unit-tests` (Vitest, behavior-driven, co-located `__tests__`), `dependency-management`, `docker-conventions`, `code-quality-setup`.
+Detailed conventions live as project skills in `.claude/skills/` — consult the matching skill before writing code: `backend-conventions` (NestJS layering), `frontend-conventions` (feature-based React structure, servers layer), `heroui-react` (primary UI in `web`/`admin`/`design`/`editor`), `shadcn` (fallback UI in `web`/`admin`/`design` via `@app/ui`), `heroui-native` (UI in `mobile`), `unit-tests` (Vitest, behavior-driven, co-located `__tests__`), `dependency-management`, `docker-conventions`, `code-quality-setup`.
 
 **Commits**: conventional commits with app/package-module scope, e.g. `feat(api/auth): ...`, `fix(ui/select): ...`, `refactor(web/users,api): ...`; imperative lowercase subject, ≤ 72 chars (full spec in `.github.temp/instructions/commit.instructions.md`).
 
