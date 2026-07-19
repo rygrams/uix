@@ -1,8 +1,11 @@
-/* Styles partagés du design system (@app/ui) : tailwind, tw-animate-css,
-   tokens de couleurs/radius et directives @source. */
-@import "@app/ui/globals.css";
+/* HeroUI v3 is the single design system for the admin app.
+   @heroui/styles brings Tailwind CSS v4, its base, components and theme. */
+@import "@heroui/styles";
 
-/* Surcharges propres à l'app web. */
+/* Scan the app sources for Tailwind utilities. */
+@source "./";
+
+/* App-level overrides. */
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";

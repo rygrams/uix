@@ -7,6 +7,7 @@ import { PrismaModule } from './infrastructure/database/prisma.module'
 import { MailModule } from './infrastructure/mail/mail.module'
 import { AuthModule } from './infrastructure/auth/auth.module'
 import { StorageModule } from './infrastructure/storage/storage.module'
+import { SettingsModule } from './domains/settings/settings.module'
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { StorageModule } from './infrastructure/storage/storage.module'
     PrismaModule,
     MailModule,
     AuthModule,
+    SettingsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

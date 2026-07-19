@@ -29,6 +29,11 @@ export const envSchema = z.object({
   BETTER_AUTH_URL: z.url('Must be a valid URL (e.g. http://localhost:3000)'),
   BETTER_AUTH_TRUSTED_ORIGINS: z.string().optional(),
 
+  // Master encryption key — encrypts/decrypts DB-stored app settings
+  CONFIG_ENCRYPTION_KEY: z
+    .string()
+    .min(1, 'Required — generate one with: openssl rand -base64 32'),
+
   // Mail — MailService
   MAIL_HOST: z
     .string()

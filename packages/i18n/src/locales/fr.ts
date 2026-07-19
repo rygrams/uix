@@ -1,0 +1,70 @@
+export const fr = {
+  common: {
+    appName: 'UIX',
+    retry: 'Réessayer',
+    save: 'Enregistrer',
+  },
+  meta: {
+    login: 'Connexion — UIX Admin',
+    dashboard: 'Tableau de bord — UIX Admin',
+    config: 'Configuration — UIX Admin',
+  },
+  authLayout: {
+    tagline: "L'espace d'administration UIX.",
+    taglineDesc:
+      'Gérez la configuration, les intégrations et la gouvernance de la plateforme depuis un seul endroit.',
+    copyright: '© {year} UIX. Tous droits réservés.',
+  },
+  auth: {
+    welcomeBack: 'Bon retour',
+    emailPrompt: 'Entrez votre e-mail pour recevoir un code de connexion',
+    codeSentTo: 'Code envoyé à {email}',
+    emailLabel: 'Adresse e-mail',
+    emailPlaceholder: 'vous@exemple.fr',
+    requestCode: 'Recevoir le code',
+    signIn: 'Se connecter',
+    changeEmail: "Changer d'adresse e-mail",
+    invalidEmail: 'Adresse e-mail invalide',
+    invalidCode: 'Le code doit contenir 6 chiffres',
+    errorSend: "Impossible d'envoyer le code",
+    errorVerify: 'Code invalide ou expiré',
+    errorGeneric: 'Une erreur est survenue',
+  },
+  nav: {
+    dashboard: 'Tableau de bord',
+    configuration: 'Configuration',
+    admin: 'Administration',
+    defaultUser: 'Administrateur',
+    signOut: 'Se déconnecter',
+    toggleTheme: 'Changer de thème',
+    switchLanguage: 'Changer de langue',
+  },
+  forbidden: {
+    title: 'Accès refusé',
+    description: "Votre compte n'a pas les droits d'administration.",
+  },
+  errors: {
+    oops: 'Oups !',
+    unexpected: 'Une erreur inattendue est survenue.',
+    notFoundTitle: 'Page introuvable',
+    notFoundDesc: 'La page demandée est introuvable.',
+    errorTitle: 'Erreur',
+  },
+  config: {
+    title: 'Configuration',
+    subtitle: "Réglages de l'application gérés en base et chiffrés au repos.",
+    loadError: 'Chargement impossible',
+    saved: 'Configuration enregistrée.',
+    saveError: 'Enregistrement impossible',
+    encryptionNote:
+      "Valeurs chiffrées au repos et déchiffrées à la lecture par l'API.",
+    secretSet: '•••••••• (défini — laisser vide pour conserver)',
+    secretUnset: 'Non défini',
+    categories: {
+      MAIL: 'Messagerie (SMTP)',
+      STORAGE: 'Stockage (S3 / RustFS)',
+      LLM: 'Modèles LLM',
+      VECTOR: 'Base vectorielle (Qdrant)',
+    },
+  },
+}

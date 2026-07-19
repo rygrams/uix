@@ -2,22 +2,24 @@
   "name": "@app/validators",
   "version": "0.0.0",
   "private": true,
-  "type": "commonjs",
+  "type": "module",
   "files": [
     "dist"
   ],
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "default": "./dist/index.js"
+      "types": "./dist/esm/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
     },
     "./*": {
-      "types": "./dist/*.d.ts",
-      "default": "./dist/*.js"
+      "types": "./dist/esm/*.d.ts",
+      "import": "./dist/esm/*.js",
+      "require": "./dist/cjs/*.js"
     }
   },
   "scripts": {
-    "build": "tsc -p tsconfig.build.json",
+    "build": "tsc -p tsconfig.build.json && tsc -p tsconfig.build.cjs.json && echo '{\"type\":\"commonjs\"}' > dist/cjs/package.json",
     "check-types": "tsc --noEmit"
   },
   "dependencies": {

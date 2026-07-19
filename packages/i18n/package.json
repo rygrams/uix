@@ -1,0 +1,30 @@
+{
+  "name": "@app/i18n",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "files": [
+    "src"
+  ],
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
+    },
+    "./*": {
+      "types": "./src/*.ts",
+      "default": "./src/*.ts"
+    }
+  },
+  "scripts": {
+    "check-types": "tsc --noEmit"
+  },
+  "dependencies": {
+    "react": "catalog:"
+  },
+  "devDependencies": {
+    "@app/typescript-config": "workspace:*",
+    "@types/react": "catalog:",
+    "typescript": "catalog:"
+  }
+}

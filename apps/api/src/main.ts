@@ -4,8 +4,19 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger'
 import { apiReference } from '@scalar/nestjs-api-reference'
 import { AppModule } from './app.module'
 
+function getCorsOrigins(): string[] {
+  return (
+    process.env['BETTER_AUTH_TRUSTED_ORIGINS']
+      ?.split(',')
+      .map((origin) => origin.trim())
+      .filter(Boolean) ?? ['http://localhost:3001', 'http://localhost:4000']
+  )
+}
+
 async function bootstrap() {
   const app = await NestFactory.create(AppModule)
+
+  app.enableCors({ origin: getCorsOrigins(), credentials: true })
 
   const config = new DocumentBuilder()
     .setTitle('API')

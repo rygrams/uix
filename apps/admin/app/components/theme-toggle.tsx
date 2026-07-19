@@ -1,27 +1,29 @@
 import { useEffect, useState } from 'react'
 import { useTheme } from 'next-themes'
+import { Button } from '@heroui/react'
+import { useTranslation } from '@app/i18n'
 import { Moon, Sun } from '@app/ui/lib/icons'
-import { Button } from '@app/ui/components/button'
 
 export function ThemeToggle() {
+  const { t } = useTranslation()
   const { resolvedTheme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => setMounted(true), [])
 
-  if (!mounted) return <div className="h-9 w-9" />
+  if (!mounted) return <div className="size-9" />
 
   return (
     <Button
+      isIconOnly
       variant="ghost"
-      size="icon"
-      onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
-      aria-label="Changer de thème"
+      aria-label={t('nav.toggleTheme')}
+      onPress={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
     >
       {resolvedTheme === 'dark' ? (
-        <Sun className="h-4 w-4" />
+        <Sun className="size-4" />
       ) : (
-        <Moon className="h-4 w-4" />
+        <Moon className="size-4" />
       )}
     </Button>
   )

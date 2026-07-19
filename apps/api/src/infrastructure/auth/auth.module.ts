@@ -36,9 +36,20 @@ import { MailService } from '@/infrastructure/mail/mail.service'
               text,
             })
           },
+          sendOTP: async ({ email, otp }) => {
+            await mailService.send({
+              to: email,
+              subject: 'Votre code de connexion',
+              html: `<p>Votre code de connexion à l'espace d'administration&nbsp;:</p><p style="font-size:24px;font-weight:700;letter-spacing:4px">${otp}</p><p>Ce code expire dans 5&nbsp;minutes.</p>`,
+              text: `Votre code de connexion : ${otp} (expire dans 5 minutes).`,
+            })
+          },
         }
 
-        return { auth: createAuth(prisma, mailer) }
+        return {
+          auth: createAuth(prisma, mailer),
+          disableTrustedOriginsCors: true,
+        }
       },
     }),
   ],

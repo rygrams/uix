@@ -5,12 +5,27 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useRouteLoaderData,
 } from 'react-router'
 import { ThemeProvider } from 'next-themes'
-import { TooltipProvider } from '@app/ui/components/tooltip'
+import {
+  DEFAULT_LOCALE,
+  detectLocale,
+  I18nProvider,
+  useTranslation,
+  type Locale,
+} from '@app/i18n'
 
 import type { Route } from './+types/root'
 import './app.css'
+
+export function loader({ request }: Route.LoaderArgs) {
+  const locale = detectLocale({
+    cookie: request.headers.get('cookie'),
+    acceptLanguage: request.headers.get('accept-language'),
+  })
+  return { locale }
+}
 
 export const links: Route.LinksFunction = () => [
   { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
@@ -26,8 +41,11 @@ export const links: Route.LinksFunction = () => [
 ]
 
 export function Layout({ children }: { children: React.ReactNode }) {
+  const data = useRouteLoaderData<typeof loader>('root')
+  const locale: Locale = data?.locale ?? DEFAULT_LOCALE
+
   return (
-    <html lang="fr" suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -35,8 +53,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <TooltipProvider>{children}</TooltipProvider>
+        <ThemeProvider
+          attribute={['class', 'data-theme']}
+          defaultTheme="system"
+          enableSystem
+        >
+          <I18nProvider locale={locale}>{children}</I18nProvider>
         </ThemeProvider>
         <ScrollRestoration />
         <Scripts />
@@ -50,15 +72,16 @@ export default function App() {
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
-  let message = 'Oops !'
-  let details = 'Une erreur inattendue est survenue.'
+  const { t } = useTranslation()
+  let message = t('errors.oops')
+  let details = t('errors.unexpected')
   let stack: string | undefined
 
   if (isRouteErrorResponse(error)) {
-    message = error.status === 404 ? '404' : 'Erreur'
+    message = error.status === 404 ? t('errors.notFoundTitle') : t('errors.errorTitle')
     details =
       error.status === 404
-        ? 'La page demandée est introuvable.'
+        ? t('errors.notFoundDesc')
         : error.statusText || details
   } else if (import.meta.env.DEV && error && error instanceof Error) {
     details = error.message
