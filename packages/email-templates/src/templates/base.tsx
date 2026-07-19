@@ -27,7 +27,7 @@ export function BaseEmail({ preview, children }: BaseEmailProps) {
         <Container style={s.container}>
           {/* Header */}
           <Section style={s.header}>
-            <Text style={s.logo}>⬡ Boilerplate</Text>
+            <Text style={s.logo}>⬡ UIX</Text>
           </Section>
 
           {/* Content */}
@@ -37,7 +37,7 @@ export function BaseEmail({ preview, children }: BaseEmailProps) {
           <Hr style={s.hr} />
           <Section>
             <Text style={s.footerText}>
-              © {new Date().getFullYear()} Boilerplate. Tous droits réservés.
+              © {new Date().getFullYear()} UIX. Tous droits réservés.
             </Text>
             <Row>
               <Column align="center">

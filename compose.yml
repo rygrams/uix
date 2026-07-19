@@ -1,4 +1,4 @@
-name: prod-dev-boilerplate
+name: uix
 
 services:
   postgres:

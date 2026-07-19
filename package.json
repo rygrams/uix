@@ -1,5 +1,5 @@
 {
-  "name": "prod-dev-boilerplate",
+  "name": "uix",
   "private": true,
   "scripts": {
     "build": "turbo run build",

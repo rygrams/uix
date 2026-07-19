@@ -12,7 +12,7 @@ import { Label } from '@app/ui/components/label'
 import { ArrowLeft } from '@app/ui/lib/icons'
 
 export function meta() {
-  return [{ title: 'Mot de passe oublié — Boilerplate' }]
+  return [{ title: 'Mot de passe oublié — UIX' }]
 }
 
 export default function ForgotPassword() {

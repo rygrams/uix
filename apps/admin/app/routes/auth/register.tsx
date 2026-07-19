@@ -12,7 +12,7 @@ import { Label } from '@app/ui/components/label'
 import { PasswordInput } from '../../components/password-input'
 
 export function meta() {
-  return [{ title: 'Créer un compte — Boilerplate' }]
+  return [{ title: 'Créer un compte — UIX' }]
 }
 
 export default function Register() {

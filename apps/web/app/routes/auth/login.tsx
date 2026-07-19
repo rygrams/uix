@@ -13,7 +13,7 @@ import { Separator } from '@app/ui/components/separator'
 import { PasswordInput } from '../../components/password-input'
 
 export function meta() {
-  return [{ title: 'Connexion — Boilerplate' }]
+  return [{ title: 'Connexion — UIX' }]
 }
 
 export default function Login() {

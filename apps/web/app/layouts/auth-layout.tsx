@@ -10,7 +10,7 @@ export default function AuthLayout() {
           <span className="bg-primary text-primary-foreground flex h-6 w-6 items-center justify-center rounded-md text-xs font-bold">
             B
           </span>
-          Boilerplate
+          UIX
         </Link>
         <ThemeToggle />
       </header>
@@ -25,7 +25,7 @@ export default function AuthLayout() {
       {/* Footer */}
       <footer className="py-4 text-center">
         <p className="text-muted-foreground text-xs">
-          © {new Date().getFullYear()} Boilerplate. Tous droits réservés.
+          © {new Date().getFullYear()} UIX. Tous droits réservés.
         </p>
       </footer>
     </div>

@@ -1,6 +1,6 @@
-# prod-dev-boilerplate
+# uix
 
-Production-ready monorepo boilerplate — NestJS API + React Router v7 web app, shared packages, Docker, and CI/CD out of the box.
+UIX — a suite of two tools: **UIX**, a pixel-perfect graphic design tool (leaning more toward Framer than Figma), and **Editor**, an agentic coding tool that integrates with UIX to build apps from designs. This is the Turborepo + pnpm monorepo backing the suite — NestJS API, React Router v7 apps, an Electron editor, shared packages, and Docker infrastructure.
 
 ## Stack
 
@@ -8,6 +8,9 @@ Production-ready monorepo boilerplate — NestJS API + React Router v7 web app, 
 | -------------- | --------------------------------------------------------------------------------- |
 | Backend        | [NestJS](https://nestjs.com/) (Node 24, TypeScript, DDD + Clean Architecture)     |
 | Frontend       | [React Router v7](https://reactrouter.com/) (SSR, TypeScript, Tailwind CSS v4)    |
+| Desktop        | [Electron](https://www.electronjs.org/) (electron-vite) for the Editor            |
+| Mobile         | [Expo](https://expo.dev/) (expo-router) for on-device design previews             |
+| UI             | [HeroUI](https://www.heroui.com/) (`@heroui/react`), `@app/ui` (shadcn) fallback  |
 | Database       | [PostgreSQL 17](https://www.postgresql.org/) via [Prisma](https://www.prisma.io/) |
 | Cache / Queue  | [Redis 7](https://redis.io/)                                                      |
 | Object storage | [RustFS](https://rustfs.com/) (S3-compatible)                                     |
@@ -20,12 +23,17 @@ Production-ready monorepo boilerplate — NestJS API + React Router v7 web app, 
 ```
 apps/
   api/          # NestJS backend (DDD + Clean Architecture)
-  web/          # React Router v7 frontend (SSR, Tailwind v4)
+  web/          # React Router v7 landing page presenting UIX + Editor
+  design/       # UIX — the pixel-perfect graphic design tool
+  editor/       # Editor — the agentic coding tool (Electron)
+  admin/        # management & governance back-office
+  mobile/       # Expo app for previewing UIX designs on-device
 packages/
   auth/             # better-auth config — createAuth(prisma, mailer) factory
   database/         # Prisma client + schema (shared)
   email-templates/  # React Email templates + renderEmail() helper
-  ui/               # Shared React component library (shadcn/ui)
+  ui/               # Shared React component library (shadcn/ui) — fallback UI
+  validators/       # Shared validators and their types
   eslint-config/        # ESLint profiles (base / nest / react)
   typescript-config/    # TypeScript profiles
   vitest-config/        # Vitest profiles
@@ -43,7 +51,7 @@ packages/
 
 ```sh
 git clone <your-repo-url>
-cd prod-dev-boilerplate   # rename this to your project name
+cd uix
 pnpm install
 ```
 
@@ -97,7 +105,7 @@ For a proper migration workflow use `pnpm db:migrate` instead of `db:push`.
 pnpm dev
 ```
 
-Turborepo starts both `api` and `web` in watch mode in parallel.
+Turborepo starts the apps wired into turbo (api + web + admin + editor) in watch mode in parallel. `mobile` is not wired into turbo — run it with `pnpm --filter mobile start|ios|android`.
 
 | Service        | URL                                                                  |
 | -------------- | -------------------------------------------------------------------- |
@@ -140,7 +148,7 @@ pnpm docker:app     # start full stack including app containers (production-like
 
 ## CI/CD
 
-Three GitHub Actions workflows are included:
+Three GitHub Actions workflows are included (currently under `.github.temp/`, not active until renamed to `.github/`):
 
 | Workflow    | Trigger                      | What it does                              |
 | ----------- | ---------------------------- | ----------------------------------------- |
@@ -150,12 +158,12 @@ Three GitHub Actions workflows are included:
 
 ### Docker Hub images
 
-Two images are published per release:
+Images are published per release:
 
-| Branch | Tags                                                                         |
-| ------ | ---------------------------------------------------------------------------- |
-| `main` | `boilerplate-api:latest`, `boilerplate-api:<version>` · same for `web`       |
-| `dev`  | `boilerplate-api:candidate`, `boilerplate-api:<version>-rc` · same for `web` |
+| Branch | Tags                                                                 |
+| ------ | -------------------------------------------------------------------- |
+| `main` | `uix-api:latest`, `uix-api:<version>` · same for `web`               |
+| `dev`  | `uix-api:candidate`, `uix-api:<version>-rc` · same for `web`         |
 
 ### Required GitHub secrets
 
@@ -164,19 +172,3 @@ Two images are published per release:
 | `DOCKER_USERNAME`     | Docker Hub username                                          |
 | `DOCKER_ACCESS_TOKEN` | Docker Hub access token                                      |
 | `DOCKER_HUB_ORG`      | Docker Hub organisation or username (prefix for image names) |
-
-## Adapting this boilerplate to your project
-
-When you use this as a base, update the following:
-
-- **`package.json`** (root) — change `"name": "prod-dev-boilerplate"` to your project name.
-- **`compose.yml`** — change `name: prod-dev-boilerplate` to your project name (controls Docker network/volume names).
-- **`compose.apps.yml`** — same `name` field.
-- **`.github/workflows/docker.yml`** — update the `matrix.app` entries: `name` must match the folder under `apps/`, `image` is the Docker Hub image name.
-  ```yaml
-  matrix:
-    app:
-      - { name: api, image: your-project-api }
-      - { name: web, image: your-project-web }
-  ```
-- **`.github/instructions/commit.instructions.md`** — update the scope examples to match your apps and packages.

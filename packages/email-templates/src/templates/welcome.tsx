@@ -12,7 +12,7 @@ export default function WelcomeEmail({
 }: Partial<WelcomeEmailProps> = {}) {
   return (
     <BaseEmail
-      preview={`Bienvenue sur Boilerplate, ${name} — confirmez votre adresse e-mail`}
+      preview={`Bienvenue sur UIX, ${name} — confirmez votre adresse e-mail`}
     >
       <Heading style={s.heading}>Bienvenue, {name} 👋</Heading>
       <Text style={s.paragraph}>

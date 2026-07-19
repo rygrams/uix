@@ -23,8 +23,8 @@ jobs:
         # TODO: replace image names with your own (e.g. myproject-api / myproject-web)
         # `name` must match the folder under apps/, `image` is the Docker Hub image name
         app:
-          - { name: api, image: boilerplate-api }
-          - { name: web, image: boilerplate-web }
+          - { name: api, image: uix-api }
+          - { name: web, image: uix-web }
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
         with:

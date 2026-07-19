@@ -17,8 +17,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@app/ui/components/tab
 
 export function meta() {
   return [
-    { title: '@app/ui — boilerplate' },
-    { name: 'description', content: 'Boilerplate home page' },
+    { title: '@app/ui — uix' },
+    { name: 'description', content: 'UIX home page' },
   ]
 }
 
@@ -53,7 +53,7 @@ export default function Home() {
             <TabsContent value="form" className="mt-4 flex flex-col gap-3">
               <div className="flex flex-col gap-2">
                 <Label htmlFor="email">Email</Label>
-                <Input id="email" type="email" placeholder="dev@boilerplate.io" />
+                <Input id="email" type="email" placeholder="dev@uix.io" />
               </div>
               <div className="flex flex-col gap-2">
                 <Label htmlFor="name">Nom</Label>

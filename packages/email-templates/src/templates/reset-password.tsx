@@ -11,7 +11,7 @@ export default function ResetPasswordEmail({
   resetUrl = 'https://example.com/reset?token=preview',
 }: Partial<ResetPasswordEmailProps> = {}) {
   return (
-    <BaseEmail preview="Réinitialisation de votre mot de passe Boilerplate">
+    <BaseEmail preview="Réinitialisation de votre mot de passe UIX">
       <Heading style={s.heading}>Réinitialisation du mot de passe</Heading>
       <Text style={s.paragraph}>Bonjour {name},</Text>
       <Text style={{ ...s.paragraph, marginTop: '-12px' }}>

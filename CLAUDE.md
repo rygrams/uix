@@ -63,4 +63,4 @@ Detailed conventions live as project skills in `.claude/skills/` — consult the
 
 **Commits**: conventional commits with app/package-module scope, e.g. `feat(api/auth): ...`, `fix(ui/select): ...`, `refactor(web/users,api): ...`; imperative lowercase subject, ≤ 72 chars (full spec in `.github.temp/instructions/commit.instructions.md`).
 
-Note: GitHub Actions workflows (CI, release, Docker publish) currently sit in `.github.temp/` — they are not active until renamed to `.github/`. The README still describes the original api+web boilerplate; admin, editor, and mobile were added on top.
+Note: GitHub Actions workflows (CI, release, Docker publish) currently sit in `.github.temp/` — they are not active until renamed to `.github/`.
