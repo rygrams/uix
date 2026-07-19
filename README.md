@@ -57,29 +57,24 @@ pnpm install
 
 ### 2. Set up environment variables
 
-```sh
-cp .env.example .env
-```
+Infrastructure values (ports, and the PostgreSQL user/password/database and RustFS
+bucket — all named after the `uix` app) are **frozen directly in `compose.yml`** /
+`compose.apps.yml`, so there is **no root `.env` to copy**. The defaults work out of the box:
 
-Edit `.env` if you need different ports. The defaults work out of the box:
+| Service    | Host port(s) | Notes                                   |
+| ---------- | ------------ | --------------------------------------- |
+| PostgreSQL | `5432`       | user `uix` / password `uix` / db `uix`  |
+| Redis      | `6379`       |                                         |
+| Mailpit    | `1025` SMTP, `8025` UI |                               |
+| RustFS     | `9000` API, `9001` console | access `uixadmin` / secret `uixsecretkey`, bucket `uix` |
+| Qdrant     | `6333` HTTP, `6334` gRPC |                             |
+| Bifrost    | `8080`       | LLM gateway                             |
+| API        | `3000`       | frozen in `compose.apps.yml`            |
+| Web        | `3001`       | frozen in `compose.apps.yml`            |
 
-| Variable            | Default      | Description            |
-| ------------------- | ------------ | ---------------------- |
-| `POSTGRES_USER`     | `app`        | PostgreSQL user        |
-| `POSTGRES_PASSWORD` | `app`        | PostgreSQL password    |
-| `POSTGRES_DB`       | `app`        | PostgreSQL database    |
-| `POSTGRES_PORT`     | `5432`       | PostgreSQL host port   |
-| `REDIS_PORT`        | `6379`       | Redis host port        |
-| `MAILPIT_SMTP_PORT` | `1025`       | Mailpit SMTP port      |
-| `MAILPIT_UI_PORT`   | `8025`       | Mailpit web UI port    |
-| `RUSTFS_ACCESS_KEY` | `minioadmin` | RustFS access key      |
-| `RUSTFS_SECRET_KEY` | `minioadmin` | RustFS secret key      |
-| `RUSTFS_API_PORT`   | `9000`       | RustFS S3 API port     |
-| `RUSTFS_UI_PORT`    | `9001`       | RustFS console UI port |
-| `RUSTFS_BUCKET`     | `app`        | Default storage bucket |
-| `API_PORT`          | `3000`       | API host port          |
-| `WEB_PORT`          | `3001`       | Web app host port      |
-
+> Host-secret LLM keys (`ANTHROPIC_API_KEY` / `OPENAI_API_KEY`, consumed by bifrost) are the
+> only values read from the environment — export them in your shell if you need them.
+>
 > Each app also has its own `.env` (or `.env.local`). Copy `.env.example` inside each app and fill in the values required by that app.
 
 ### 3. Start infrastructure (PostgreSQL, Redis, Mailpit)

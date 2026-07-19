@@ -41,11 +41,11 @@ const settings: z.input<typeof settingsSchema> = [
   { category: SettingCategory.MAIL, key: 'MAIL_FROM_EMAIL', value: 'noreply@example.com', pattern: PATTERN.EMAIL },
 
   { category: SettingCategory.STORAGE, key: 'RUSTFS_ENDPOINT', value: 'localhost' },
-  { category: SettingCategory.STORAGE, key: 'RUSTFS_ACCESS_KEY', value: 'minioadmin', secret: true },
-  { category: SettingCategory.STORAGE, key: 'RUSTFS_SECRET_KEY', value: 'minioadmin', secret: true },
+  { category: SettingCategory.STORAGE, key: 'RUSTFS_ACCESS_KEY', value: 'uixadmin', secret: true },
+  { category: SettingCategory.STORAGE, key: 'RUSTFS_SECRET_KEY', value: 'uixsecretkey', secret: true },
   { category: SettingCategory.STORAGE, key: 'RUSTFS_API_PORT', value: '9000', pattern: PATTERN.PORT },
   { category: SettingCategory.STORAGE, key: 'RUSTFS_USE_SSL', value: 'false', pattern: PATTERN.BOOL },
-  { category: SettingCategory.STORAGE, key: 'RUSTFS_BUCKET', value: 'app' },
+  { category: SettingCategory.STORAGE, key: 'RUSTFS_BUCKET', value: 'uix' },
 
   { category: SettingCategory.LLM, key: 'ANTHROPIC_API_KEY', value: '', secret: true },
   { category: SettingCategory.LLM, key: 'OPENAI_API_KEY', value: '', secret: true },
