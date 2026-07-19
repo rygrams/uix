@@ -1,0 +1,5 @@
+{
+  "extends": "./packages/database/tsconfig.json",
+  "include": ["packages/database/prisma/seed.ts", "packages/database/src/**/*.ts"],
+  "exclude": ["node_modules", "packages/database/src/generated"]
+}

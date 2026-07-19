@@ -1,5 +1,6 @@
 import { betterAuth } from 'better-auth'
 import { prismaAdapter } from 'better-auth/adapters/prisma'
+import { admin } from 'better-auth/plugins'
 import type { PrismaClient } from '@app/database'
 
 const DEFAULT_TRUSTED_ORIGINS = ['http://localhost:3000', 'http://localhost:3001']
@@ -69,7 +70,7 @@ export function createAuth(prisma: PrismaClient, mailer: AuthMailer) {
     user: {
       additionalFields: {},
     },
-    plugins: [],
+    plugins: [admin({ defaultRole: 'user', adminRoles: ['admin', 'superadmin'] })],
   })
 }
 

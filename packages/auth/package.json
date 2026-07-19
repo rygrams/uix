@@ -18,7 +18,8 @@
   },
   "dependencies": {
     "@app/database": "workspace:*",
-    "better-auth": "catalog:"
+    "better-auth": "catalog:",
+    "zod": "catalog:"
   },
   "devDependencies": {
     "@app/typescript-config": "workspace:*",
