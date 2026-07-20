@@ -8,7 +8,7 @@ export default function AuthLayout() {
   const { t } = useTranslation()
 
   return (
-    <div className="grid min-h-svh bg-background text-foreground lg:grid-cols-2">
+    <div className="bg-background text-foreground grid min-h-svh lg:grid-cols-2">
       {/* Left — form column */}
       <div className="flex flex-col">
         <header className="flex items-center justify-between px-6 py-5">
@@ -29,7 +29,7 @@ export default function AuthLayout() {
         </main>
 
         <footer className="px-6 py-5">
-          <p className="text-xs text-muted">
+          <p className="text-muted text-xs">
             {t('authLayout.copyright', { year: new Date().getFullYear() })}
           </p>
         </footer>
@@ -38,17 +38,17 @@ export default function AuthLayout() {
       {/* Right — decorative panel */}
       <div className="relative hidden overflow-hidden lg:block">
         {/* Gradient fallback (shown until the cover image is added). */}
-        <div className="absolute inset-0 bg-gradient-to-br from-indigo-700 via-purple-700 to-fuchsia-700" />
+        <div className="absolute inset-0 bg-linear-to-br from-indigo-700 via-purple-700 to-fuchsia-700" />
         {/* Cover image — drop /public/login-cover.png; falls back to the gradient. */}
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/login-cover.png')" }}
+          style={{ backgroundImage: "url('/login-cover.jpg')" }}
         />
         {/* Legibility overlay for the caption. */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/10 to-transparent" />
 
         <div className="relative flex h-full flex-col justify-end gap-3 p-12 text-white">
-          <p className="text-3xl font-semibold leading-tight">
+          <p className="text-3xl leading-tight font-semibold">
             {t('authLayout.tagline')}
           </p>
           <p className="max-w-md text-sm text-white/70">
